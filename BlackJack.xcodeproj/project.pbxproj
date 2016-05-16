@@ -13,6 +13,7 @@
 		08C8643F1CE1798D00A33B25 /* BlackJack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08C8643D1CE1798D00A33B25 /* BlackJack.xcdatamodeld */; };
 		08C864411CE1798D00A33B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C864401CE1798D00A33B25 /* Assets.xcassets */; };
 		08C864441CE1798D00A33B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C864421CE1798D00A33B25 /* LaunchScreen.storyboard */; };
+		71990A9B1CE97CED00C2779C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71990A9A1CE97CED00C2779C /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		08C864401CE1798D00A33B25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08C864431CE1798D00A33B25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08C864451CE1798D00A33B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71990A9A1CE97CED00C2779C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				08C864361CE1798D00A33B25 /* AppDelegate.swift */,
 				08C864381CE1798D00A33B25 /* ViewController.swift */,
+				71990A9A1CE97CED00C2779C /* MenuViewController.swift */,
 				08C8643A1CE1798D00A33B25 /* Main.storyboard */,
 				08C864401CE1798D00A33B25 /* Assets.xcassets */,
 				08C864421CE1798D00A33B25 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 				08C8643F1CE1798D00A33B25 /* BlackJack.xcdatamodeld in Sources */,
 				08C864391CE1798D00A33B25 /* ViewController.swift in Sources */,
 				08C864371CE1798D00A33B25 /* AppDelegate.swift in Sources */,
+				71990A9B1CE97CED00C2779C /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

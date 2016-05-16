@@ -1,15 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="le7-rR-lyS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="ff4-8V-2ve">
+            <objects>
+                <viewController id="le7-rR-lyS" customClass="MenuViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="No9-0w-6yU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y54-gc-XCx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mjV-jW-Psn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmW-z0-h9A">
+                                <rect key="frame" x="219" y="358" width="162" height="63"/>
+                                <color key="backgroundColor" red="0.15016888989999999" green="0.46329329260000002" blue="0.85505457949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="9PH-l9-ZGF">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="66"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="Wcf-jl-0ME"/>
+                                    <constraint firstAttribute="width" constant="162" id="zcd-fZ-jMv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPressed:" destination="le7-rR-lyS" eventType="touchUpInside" id="q7S-ns-XRb"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="k0Q-iL-hm6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozo-3J-Lc2">
+                                <rect key="frame" x="219" y="444" width="162" height="71"/>
+                                <color key="backgroundColor" red="0.15016888991045019" green="0.46329329258695423" blue="0.85505457947375485" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="EuI-9m-J4w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Rules">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rulesPressed:" destination="le7-rR-lyS" eventType="touchUpInside" id="qI3-TM-R1d"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blackjack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-NP-0y8">
+                                <rect key="frame" x="0.0" y="90" width="600" height="163"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="163" id="ee1-M7-yDk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                <color key="textColor" red="0.97131410256410255" green="0.97131410256410255" blue="0.97131410256410255" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gWO-NP-0y8" firstAttribute="top" secondItem="No9-0w-6yU" secondAttribute="bottom" constant="70" id="3mM-2I-x82"/>
+                            <constraint firstItem="gWO-NP-0y8" firstAttribute="centerX" secondItem="mjV-jW-Psn" secondAttribute="centerX" id="7Qz-oI-U1a"/>
+                            <constraint firstItem="lmW-z0-h9A" firstAttribute="top" secondItem="No9-0w-6yU" secondAttribute="bottom" constant="338" id="Flr-Ud-9zE">
+                                <variation key="heightClass=regular-widthClass=compact" constant="535"/>
+                            </constraint>
+                            <constraint firstItem="Y54-gc-XCx" firstAttribute="top" secondItem="ozo-3J-Lc2" secondAttribute="bottom" constant="85" id="auQ-6e-hcn"/>
+                            <constraint firstItem="ozo-3J-Lc2" firstAttribute="centerX" secondItem="lmW-z0-h9A" secondAttribute="centerX" id="enT-SQ-IUX"/>
+                            <constraint firstItem="Y54-gc-XCx" firstAttribute="top" secondItem="lmW-z0-h9A" secondAttribute="bottom" constant="179" id="fKu-fE-IVo"/>
+                            <constraint firstItem="ozo-3J-Lc2" firstAttribute="top" secondItem="lmW-z0-h9A" secondAttribute="bottom" constant="23" id="oEz-aX-Xva"/>
+                            <constraint firstItem="lmW-z0-h9A" firstAttribute="centerX" secondItem="mjV-jW-Psn" secondAttribute="centerX" id="spQ-8m-RYe"/>
+                            <constraint firstItem="gWO-NP-0y8" firstAttribute="leading" secondItem="mjV-jW-Psn" secondAttribute="leadingMargin" constant="-20" id="ziZ-xn-Bp6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hX-fv-Xsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573" y="-278"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlackJack_main" id="BYZ-38-t0r" customClass="ViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
