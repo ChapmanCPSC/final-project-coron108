@@ -204,7 +204,7 @@ class ViewController: UIViewController {
             
             self.presentViewController(alertController, animated: true, completion: nil)
             
-            delay(1.0)
+            delay(2.0)
             {
                self.resetGame()
             }
@@ -218,7 +218,7 @@ class ViewController: UIViewController {
             
             self.presentViewController(alertController, animated: true, completion: nil)
             
-            delay(1.0)
+            delay(2.0)
             {
                 self.resetGame()
             }
@@ -231,7 +231,33 @@ class ViewController: UIViewController {
             
             self.presentViewController(alertController, animated: true, completion: nil)
             
-            delay(1.0)
+            delay(2.0)
+            {
+                self.resetGame()
+            }
+        }
+        
+        if winner == 4
+        {
+            let alertController = UIAlertController(title: "Ouch", message: "The dealer reached 5 cards. You lose!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Wow...", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            delay(2.0)
+            {
+                self.resetGame()
+            }
+        }
+        
+        if winner == 5
+        {
+            let alertController = UIAlertController(title: "Five Card Charlie", message: "You got five cards without going over! Nice!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "W00t, w00t! I win!", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            delay(2.0)
             {
                 self.resetGame()
             }
@@ -416,7 +442,7 @@ class ViewController: UIViewController {
         dealerCardData04 = nil
         dealerCardData05 = nil
         
-        dealerCard_IV_01.image = dealerCardData01!.img
+        dealerCard_IV_01.image = UIImage(named: "card_back")!
         dealerCard_IV_02.image = dealerCardData02!.img
         dealerCard_IV_03.image = UIImage(named: "blank")
         dealerCard_IV_04.image = UIImage(named: "blank")
@@ -452,7 +478,7 @@ class ViewController: UIViewController {
         dealerCardData01 = randCard()
         dealerCardData02 = randCard()
         
-        dealerCard_IV_01.image = dealerCardData01!.img
+        dealerCard_IV_01.image = UIImage(named: "card_back")! //Show the back of the card for one of the dealer's card
         dealerCard_IV_02.image = dealerCardData02!.img
         dealerCardValue01 = dealerCardData01!.value1
         dealerCardValue02 = dealerCardData02!.value1
@@ -496,6 +522,11 @@ class ViewController: UIViewController {
             
             totalCardValue = sumOfCards(userCardData01!, card2: userCardData02!, card3: userCardData03!, card4: userCardData04!, card5: userCardData05!)
             userCheckOver21(totalCardValue)
+            
+            if totalCardValue < 21
+            {
+                gameOver(5)  //Five card charlie rule 
+            }
         }
         
         hitButtonPresses += 1
@@ -508,41 +539,50 @@ class ViewController: UIViewController {
         
         delay(1.0)
         {
+            self.dealerCard_IV_01.image = self.dealerCardData01!.img
             
-            if self.dealerCardValue < 17
+            self.delay(1.0)
             {
-                self.dealerCardData03 = self.randCard()
-                self.dealerCard_IV_03.image = self.dealerCardData03!.img
-                self.dealerCardValue03 = self.dealerCardData03!.value1
-                self.dealerCardValue = self.sumOfCards(self.dealerCardData01!, card2: self.dealerCardData02!, card3: self.dealerCardData03!)
-                self.dealerCheckOver21(self.dealerCardValue)
-                
-                self.delay(1.0)
+                if self.dealerCardValue < 17
                 {
-                    if self.dealerCardValue < 17 && self.dealerCardData03 != nil   //nil check for extra cards
+                    self.dealerCardData03 = self.randCard()
+                    self.dealerCard_IV_03.image = self.dealerCardData03!.img
+                    self.dealerCardValue03 = self.dealerCardData03!.value1
+                    self.dealerCardValue = self.sumOfCards(self.dealerCardData01!, card2: self.dealerCardData02!, card3: self.dealerCardData03!)
+                    self.dealerCheckOver21(self.dealerCardValue)
+                    
+                    self.delay(1.0)
                     {
-                        self.dealerCardData04 = self.randCard()
-                        self.dealerCard_IV_04.image = self.dealerCardData04!.img
-                        self.dealerCardValue04 = self.dealerCardData04!.value1
-                        self.dealerCardValue = self.sumOfCards(self.dealerCardData01!, card2: self.dealerCardData02!, card3: self.dealerCardData03!, card4: self.dealerCardData04!)
-                        self.dealerCheckOver21(self.dealerCardValue)
-                        
-                        self.delay(1.0)
+                        if self.dealerCardValue < 17 && self.dealerCardData03 != nil   //nil check for extra cards
                         {
-                            if self.dealerCardValue < 17 && self.dealerCardData03 != nil   //nil check for extra cards
+                            self.dealerCardData04 = self.randCard()
+                            self.dealerCard_IV_04.image = self.dealerCardData04!.img
+                            self.dealerCardValue04 = self.dealerCardData04!.value1
+                            self.dealerCardValue = self.sumOfCards(self.dealerCardData01!, card2: self.dealerCardData02!, card3: self.dealerCardData03!, card4: self.dealerCardData04!)
+                            self.dealerCheckOver21(self.dealerCardValue)
+                            
+                            self.delay(1.0)
                             {
-                                self.dealerCardData05 = self.randCard()
-                                self.dealerCard_IV_05.image = self.dealerCardData05!.img
-                                self.dealerCardValue05 = self.dealerCardData05!.value1
-                                self.dealerCardValue = self.sumOfCards(self.dealerCardData01!, card2: self.dealerCardData02!, card3: self.dealerCardData03!, card4: self.dealerCardData04!, card5: self.dealerCardData05!)
-                                self.dealerCheckOver21(self.dealerCardValue)
+                                if self.dealerCardValue < 17 && self.dealerCardData03 != nil   //nil check for extra cards
+                                {
+                                    self.dealerCardData05 = self.randCard()
+                                    self.dealerCard_IV_05.image = self.dealerCardData05!.img
+                                    self.dealerCardValue05 = self.dealerCardData05!.value1
+                                    self.dealerCardValue = self.sumOfCards(self.dealerCardData01!, card2: self.dealerCardData02!, card3: self.dealerCardData03!, card4: self.dealerCardData04!, card5: self.dealerCardData05!)
+                                    self.dealerCheckOver21(self.dealerCardValue)
+                                }
+                                
+                                if self.dealerCardValue < 21 && self.dealerCardData03 != nil
+                                {
+                                    self.gameOver(4)  //Five card charlie rule
+                                }
                             }
                         }
                     }
                 }
+                
+                self.compareCards(self.totalCardValue, dealer: self.dealerCardValue)
             }
-            
-            self.compareCards(self.totalCardValue, dealer: self.dealerCardValue)
         }
     }
 }
